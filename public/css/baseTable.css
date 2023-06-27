@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    user-select: none;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.table-marg-top20 {
+    margin-top: 20px;
+}
+
+.table-hover-pointer:hover {
+    cursor: pointer;
+}
+
+.table-header-text-center
+{
+    text-align: center;
+}

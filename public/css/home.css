@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #333;
+}
+
+.alertPopUp
+{
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background-color: #f7d7da;
+  color: black;
+  width: 100%;
+  
+  transition: 0.5s;
+}
+
+.alertTitle
+{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-top: 10px;
+}
+
+.alertDescLabel
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.card {
+  background-color: #ffffff;
+  width: 256px;
+  height: 412px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-image-basic {
+  margin-top: 40px;
+}
+
+.card-title-basic {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-label-basic {
+  color: rgb(148, 148, 148);
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+.card-input-margin40 {
+  margin-top: 40px;
+}
+
+.card-input-margin20 {
+  margin-top: 20px;
+}
+
+.card-input-basic {
+  width: 80%;
+  padding: 10px;
+
+  border-radius: 10px;
+  border: none;
+
+  background-color: #f4f5ff;
+}
+
+.card-button-basic {
+  margin-top: 20px;
+  width: 90%;
+  padding: 10px;
+
+  border-radius: 20px;
+  border: none;
+
+  background-color: rgb(113, 61, 255);
+  color: white;
+
+  transition: 0.5s;
+}
+
+.card-button-basic:hover {
+  cursor: pointer;
+  background-color: rgb(95, 37, 252);
+}
+
+.card-help-label-link-basic {
+  margin-top: 40px;
+  color: rgb(148, 148, 148);
+
+  text-decoration: none;
+  font-size: 13px;
+}

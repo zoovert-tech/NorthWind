@@ -1,0 +1,206 @@
+.navbar_custom {
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.navbar_custom a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar_custom a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #1a1a1a;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 312312;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.float-right
+{
+    float: right;
+}
+
+.marg-left-10px
+{
+    margin-left: 10px;
+}
+
+.dropdown-link-pointer:hover
+{
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+    transition: backdrop-filter 0.2s;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content-custom {
+    margin: auto;
+}
+
+.dialogBlock {
+    display: flex;
+    overflow: auto;
+
+    align-items: center;
+    flex-direction: column;
+
+    width: 612px;
+    height: 412px;
+    background-color: #292929;
+    border-bottom: solid 10px #292929;
+}
+
+.dialogTitle {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.horDivider {
+    width: 100%;
+    height: 1px;
+    background-color: #494949;
+    margin-top: 10px;
+}
+
+.dialogDropDown {
+    width: 130px;
+    margin-top: 10px;
+
+    background-color: #505050;
+    color: white;
+
+    border: none;
+    padding: 2px;
+
+    border-radius: 4px;
+}
+
+.dialogButton {
+    width: 130px;
+    padding: 3px;
+
+    background-color: #505050;
+    color: white;
+
+    border: none;
+    margin-top: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: 20px;
+
+    transition: 0.5s;
+}
+
+.dialogButton:hover {
+    cursor: pointer;
+    background-color: #363636;
+}
+
+input:focus {
+    outline: none;
+}
+
+.dialogText {
+    color: white;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.modal-window-input
+{
+    width: 90%;
+    padding: 5px;
+
+    margin-top: 10px;
+    background-color: #505050;
+    border: none;
+    color: white;
+    
+}
+
+.modal-window-input-padding
+{
+    padding: 20px;
+}
+
+.modal-window-input::placeholder
+{
+    color: white;
+    font-size: 15px;
+}
+
+.buttonHolder
+{
+    display: flex;
+    width: 96%;
+    justify-content: right;
+    align-items: center;
+    
+    margin-top: 20px;
+}
+
+.margintop20
+{
+    margin-top: 20px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link type="text/css" rel="stylesheet" href="css/home.css" />
+</head>
+
+<body>
+    <div id="userPopDataID" class="alertPopUp">
+        <p class="alertTitle">Warning</p>
+        <p id="alertDescLabelID" class="alertDescLabel">
+            User login or password incorrect
+        </p>
+    </div>
+
+    <div class="main">
+        <div class="card">
+            <img class="card-image-basic" alt="logo" />
+            <p class="card-title-basic">Welcome back</p>
+            <p class="card-label-basic">Enter your data to login</p>
+
+            <!-- Inputs -->
+            <input id="userLoginID" class="card-input-basic card-input-margin40" placeholder="email" />
+            <input id="userPasswordID" class="card-input-basic card-input-margin20" type="password"
+                placeholder="password" />
+
+            <!-- Button submit -->
+            <button type="submit" onclick="SendAuthData()" class="card-button-basic">
+                Login
+            </button>
+
+            <!-- Forget password label -->
+            <a href="#" class="card-help-label-link-basic">Forget password?</a>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="js/index.js"></script>
+
+</html>
