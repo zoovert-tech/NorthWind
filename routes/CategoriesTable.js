@@ -1,14 +1,7 @@
 var express = require("express");
 var routerTest = express.Router();
 
-const config = {
-    host: "localhost",
-    user: "postgres",
-    password: "1234",
-    database: "DbNorth",
-    port: 5432,
-    ssl: false,
-};
+const dbHelper = require('../models/PostGreSQL');
 
 /* Prepare raw data */
 function PrepareData(userList, userData) {
@@ -29,7 +22,7 @@ routerTest.get('/CategoriesTable', async function (req, res) {
     var catListData = new Array();
 
     const dbHelper = require('../models/PostGreSQL');
-    dbHelper.OpenConnection(config);
+    dbHelper.OpenConnection();
 
     PrepareData(await dbHelper.GetAllCategories(), catListData);
 
@@ -41,8 +34,7 @@ routerTest.get('/CategoriesTable', async function (req, res) {
 routerTest.post('/CategoriesTable', async function (req, res) {
     const q = `INSERT INTO public.categories(category_name, description, picture) VALUES (${req.body.name}, ${req.body.desc}, '');`;
 
-    const dbHelper = require('../models/PostGreSQL');
-    dbHelper.OpenConnection(config);
+    dbHelper.OpenConnection();
 
     var qResult = await dbHelper.ExecuteQueryString(q);
 
@@ -54,8 +46,7 @@ routerTest.post('/CategoriesTable', async function (req, res) {
 routerTest.post('/CategoriesTableDelete', async function (req, res) {
     const q = `DELETE FROM public."categories" WHERE "category_id" = ${req.body.id}`;
 
-    const dbHelper = require('../models/PostGreSQL');
-    dbHelper.OpenConnection(config);
+    dbHelper.OpenConnection();
 
     var qResult = await dbHelper.ExecuteQueryString(q);
 

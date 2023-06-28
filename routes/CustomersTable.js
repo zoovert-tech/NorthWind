@@ -1,15 +1,7 @@
 var express = require("express");
 var routerTest = express.Router();
 
-const config = {
-    host: "localhost",
-    user: "postgres",
-    password: "1234",
-    database: "DbNorth",
-    port: 5432,
-    ssl: false,
-};
-
+const dbHelper = require('../models/PostGreSQL');
 
 /* Prepare raw data */
 function PrepareData(userList, customers) {
@@ -36,8 +28,7 @@ function PrepareData(userList, customers) {
 routerTest.get('/CustomersTable', async function (req, res) {
     var customers = new Array();
 
-    const dbHelper = require('../models/PostGreSQL');
-    dbHelper.OpenConnection(config);
+    dbHelper.OpenConnection();
 
     PrepareData(await dbHelper.GetAllFromTable('customers'), customers);
 
@@ -51,8 +42,8 @@ routerTest.post('/CustomersTable', async function (req, res) {
     ( 'id_id',${req.body.companyName}, ${req.body.contantName}, ${req.body.contactTitle}, ${req.body.address}, ${req.body.city},
         ${req.body.region}, ${req.body.postalCode}, ${req.body.countryCode}, ${req.body.phoneNumber}, ${req.body.faxNumber});`;
 
-    const dbHelper = require('../models/PostGreSQL');
-    dbHelper.OpenConnection(config);
+
+    dbHelper.OpenConnection();
 
     var qResult = await dbHelper.ExecuteQueryString(q);
 

@@ -1,14 +1,7 @@
 var express = require("express");
 var routerTest = express.Router();
 
-const config = {
-  host: "localhost",
-  user: "postgres",
-  password: "1234",
-  database: "DbNorth",
-  port: 5432,
-  ssl: false,
-};
+const dbHelper = require('../models/PostGreSQL');
 
 /* Prepare raw data */
 function PrepareData(userList, userData) {
@@ -27,8 +20,7 @@ function PrepareData(userList, userData) {
 routerTest.get('/usersTable', async function (req, res) {
   var userData = new Array();
 
-  const dbHelper = require('../models/PostGreSQL');
-  dbHelper.OpenConnection(config);
+  dbHelper.OpenConnection();
 
   // prepare user list for rendering on page
   PrepareData(await dbHelper.GetAllUsers(), userData);
@@ -41,8 +33,7 @@ routerTest.get('/usersTable', async function (req, res) {
 routerTest.post('/usersTable', async function (req, res) {
   const q = `INSERT INTO public."Users"("Login", "Password") VALUES ('${req.body.login}','${req.body.password}');`;
 
-  const dbHelper = require('../models/PostGreSQL');
-  dbHelper.OpenConnection(config);
+  dbHelper.OpenConnection();
 
   var qResult = await dbHelper.ExecuteQueryString(q);
 
@@ -54,8 +45,7 @@ routerTest.post('/usersTable', async function (req, res) {
 routerTest.post('/usersTableDelete', async function (req, res) {
   const q = `DELETE FROM public."Users" WHERE "userID" = ${req.body.id}`;
 
-  const dbHelper = require('../models/PostGreSQL');
-  dbHelper.OpenConnection(config);
+  dbHelper.OpenConnection();
 
   var qResult = await dbHelper.ExecuteQueryString(q);
 

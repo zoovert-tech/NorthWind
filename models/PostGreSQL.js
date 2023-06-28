@@ -5,19 +5,26 @@ class PgDataBase {
 
     }
 
-    static OpenConnection(conConfig) {
+    static OpenConnection() {
 
-        dbClient = new pg.Client(conConfig);
+        const config = {
+            host: "localhost",
+            user: "postgres",
+            password: "1234",
+            database: "DbNorth",
+            port: 5432,
+            ssl: false,
+        };
+
+        dbClient = new pg.Client(config);
         dbClient.connect();
     }
 
-    static CloseConnnection()
-    {
+    static CloseConnnection() {
         dbClient.end();
     }
 
-    static async ExecuteQueryString(string)
-    {
+    static async ExecuteQueryString(string) {
         const result = await dbClient.query(string);
         return result;
     }

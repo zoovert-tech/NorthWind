@@ -1,6 +1,8 @@
 var express = require("express");
 var routerTest = express.Router();
 
+const dbHelper = require('../models/PostGreSQL');
+
 /* Prepare raw data */
 function PrepareData(productsList, userData) {
     for (let i = 0; i < productsList.length; i++) {
@@ -25,25 +27,17 @@ function PrepareData(productsList, userData) {
 routerTest.get('/ProductsTable', async function (req, res) {
     var productsList = new Array();
 
-    const config = {
-        host: "localhost",
-        user: "postgres",
-        password: "1234",
-        database: "DbNorth",
-        port: 5432,
-        ssl: false,
-    };
-
-    const dbHelper = require('../models/PostGreSQL');
-    dbHelper.OpenConnection(config);
+    dbHelper.OpenConnection();
 
     PrepareData(await dbHelper.GetAllFromTable('products'), productsList);
 
     res.render('ProductsTable', { productsList: productsList });
+
+    dbHelper.CloseConnnection();
 });
 
 routerTest.post('/ProductsTable', function (req, res) {
-    res.send('banned from POST backTest.js!');
+
 });
 
 module.exports = routerTest;
